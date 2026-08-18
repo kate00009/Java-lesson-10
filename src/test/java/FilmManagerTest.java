@@ -38,7 +38,7 @@ public class FilmManagerTest {
     //ВЫВОД В ОБРАТНОМ ПОРЯДКЕ ЛИМИТА ФИЛЬМОВ
     @Test
     public void getReversed() {
-        PurchaseItem[] expected = {item5, item4, item3, item2, item1};
+        PurchaseItem[] expected = {item6, item5, item4, item3, item2};
         PurchaseItem[] actual = manager.findLast();
 
         assertArrayEquals(expected, actual);

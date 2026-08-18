@@ -42,7 +42,7 @@ public class FilmManager {
     //ВЫВОД В ОБРАТНОМ ПОРЯДКЕ ЛИМИТА ФИЛЬМОВ
     public PurchaseItem[] findLast() {
         PurchaseItem[] reversed = new PurchaseItem[limit];
-        for (int i = 0; i < limit - 1; i++) {
+        for (int i = 0; i < limit; i++) {
             reversed[i] = items[items.length - 1 - i];
         }
         return reversed;
