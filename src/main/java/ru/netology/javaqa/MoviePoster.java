@@ -1,9 +1,9 @@
 package ru.netology.javaqa;
 
-public class PurchaseItem {
+public class MoviePoster {
     private String filmName;
 
-    public PurchaseItem(String filmName) {
+    public MoviePoster(String filmName) {
         this.filmName = filmName;
     }
 }

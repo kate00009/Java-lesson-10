@@ -7,30 +7,30 @@ import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 public class FilmManagerTest {
 
-    PurchaseItem item1 = new PurchaseItem("Исчезнувшая");
-    PurchaseItem item2 = new PurchaseItem("Человек паук");
-    PurchaseItem item3 = new PurchaseItem("Один дома");
-    PurchaseItem item4 = new PurchaseItem("Дэдпул");
-    PurchaseItem item5 = new PurchaseItem("Форрест Гамп");
-    PurchaseItem item6 = new PurchaseItem("Дневник памяти");
+    MoviePoster film1 = new MoviePoster("Исчезнувшая");
+    MoviePoster film2 = new MoviePoster("Человек паук");
+    MoviePoster film3 = new MoviePoster("Один дома");
+    MoviePoster film4 = new MoviePoster("Дэдпул");
+    MoviePoster film5 = new MoviePoster("Форрест Гамп");
+    MoviePoster film6 = new MoviePoster("Дневник памяти");
 
     FilmManager manager = new FilmManager();
 
     @BeforeEach
-    public void setup () {
-        manager.add(item1);
-        manager.add(item2);
-        manager.add(item3);
-        manager.add(item4);
-        manager.add(item5);
-        manager.add(item6);
+    public void setup() {
+        manager.add(film1);
+        manager.add(film2);
+        manager.add(film3);
+        manager.add(film4);
+        manager.add(film5);
+        manager.add(film6);
     }
 
     //ВЫВОД ПО ОЧЕРЕДИ ВСЕХ ФИЛЬМОВ
     @Test
     public void get() {
-        PurchaseItem[] expected = {item1, item2, item3, item4, item5, item6};
-        PurchaseItem[] actual = manager.findAll();
+        MoviePoster[] expected = {film1, film2, film3, film4, film5, film6};
+        MoviePoster[] actual = manager.findAll();
 
         assertArrayEquals(expected, actual);
     }
@@ -38,8 +38,8 @@ public class FilmManagerTest {
     //ВЫВОД В ОБРАТНОМ ПОРЯДКЕ ЛИМИТА ФИЛЬМОВ
     @Test
     public void getReversed() {
-        PurchaseItem[] expected = {item6, item5, item4, item3, item2};
-        PurchaseItem[] actual = manager.findLast();
+        MoviePoster[] expected = {film6, film5, film4, film3, film2};
+        MoviePoster[] actual = manager.findLast();
 
         assertArrayEquals(expected, actual);
     }
@@ -48,29 +48,29 @@ public class FilmManagerTest {
     @Test
     public void getReversedLimit() {
         FilmManager manager = new FilmManager(4);
-        manager.add(item1);
-        manager.add(item2);
-        manager.add(item3);
-        manager.add(item4);
-        manager.add(item5);
-        manager.add(item6);
-        PurchaseItem[] expected = {item6, item5, item4, item3};
-        PurchaseItem[] actual = manager.findLast();
+        manager.add(film1);
+        manager.add(film2);
+        manager.add(film3);
+        manager.add(film4);
+        manager.add(film5);
+        manager.add(film6);
+        MoviePoster[] expected = {film6, film5, film4, film3};
+        MoviePoster[] actual = manager.findLast();
 
         assertArrayEquals(expected, actual);
     }
 
     @Test
-    public void getReversedLimit2() {
+    public void getReversedLimitAboveSize() {
         FilmManager manager = new FilmManager(9);
-        manager.add(item1);
-        manager.add(item2);
-        manager.add(item3);
-        manager.add(item4);
-        manager.add(item5);
-        manager.add(item6);
-        PurchaseItem[] expected = {item6, item5, item4, item3, item2, item1};
-        PurchaseItem[] actual = manager.findLast();
+        manager.add(film1);
+        manager.add(film2);
+        manager.add(film3);
+        manager.add(film4);
+        manager.add(film5);
+        manager.add(film6);
+        MoviePoster[] expected = {film6, film5, film4, film3, film2, film1};
+        MoviePoster[] actual = manager.findLast();
 
         assertArrayEquals(expected, actual);
     }
