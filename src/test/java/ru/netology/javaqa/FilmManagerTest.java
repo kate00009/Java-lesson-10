@@ -1,7 +1,7 @@
+package ru.netology.javaqa;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
@@ -48,7 +48,28 @@ public class FilmManagerTest {
     @Test
     public void getReversedLimit() {
         FilmManager manager = new FilmManager(4);
+        manager.add(item1);
+        manager.add(item2);
+        manager.add(item3);
+        manager.add(item4);
+        manager.add(item5);
+        manager.add(item6);
         PurchaseItem[] expected = {item6, item5, item4, item3};
+        PurchaseItem[] actual = manager.findLast();
+
+        assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    public void getReversedLimit2() {
+        FilmManager manager = new FilmManager(9);
+        manager.add(item1);
+        manager.add(item2);
+        manager.add(item3);
+        manager.add(item4);
+        manager.add(item5);
+        manager.add(item6);
+        PurchaseItem[] expected = {item6, item5, item4, item3, item2, item1};
         PurchaseItem[] actual = manager.findLast();
 
         assertArrayEquals(expected, actual);
