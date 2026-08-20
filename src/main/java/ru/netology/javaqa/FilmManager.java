@@ -3,7 +3,6 @@ package ru.netology.javaqa;
 public class FilmManager {
     private MoviePoster[] films = new MoviePoster[0];
     private int limit;
-    private int count;
 
     //ПО УМОЛЧАНИЮ ЛИМИТ ВЫВОДИМЫХ ФИЛЬМОВ 5
     public FilmManager() {
@@ -35,6 +34,7 @@ public class FilmManager {
 
     //ВЫВОД В ОБРАТНОМ ПОРЯДКЕ ЛИМИТА ФИЛЬМОВ
     public MoviePoster[] findLast() {
+        int count;
         if (limit > films.length) {
             count = films.length;
         } else {
